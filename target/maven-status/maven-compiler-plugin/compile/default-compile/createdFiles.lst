@@ -1,0 +1,6 @@
+com\paycraft\service\ProductIntr.class
+com\paycraft\controller\ProductController.class
+com\paycraft\repository\ProductRepository.class
+com\paycraft\service\ProductIntrImpl.class
+com\paycraft\DockerApplication.class
+com\paycraft\model\Product.class

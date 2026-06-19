@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: docker
+
+  datasource:
+    url: jdbc:postgresql://SHRI_CONTAINER:5432/SHRI
+    username: SHRI
+    password: SHRI@123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
