@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: SHRI_CONTAINER
+    restart: always
+    environment:
+      POSTGRES_DB: SHRI
+      POSTGRES_USER: SHRI
+      POSTGRES_PASSWORD: SHRI@123
+    ports:
+      - "5432:5432"
+    volumes:
+      - psql-data:/var/lib/postgresql/data
+    networks:
+      - two_tier
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U SHRI"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+#    build: .
+    image: shrishambho/java-app:latest
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    networks:
+      - two_tier
+
+volumes:
+  psql-data:
+
+networks:
+  two_tier:
