@@ -23,6 +23,8 @@ services:
 
   app:
 #    build: .
+
+
     image: shrishambho/springboot
     restart: always
     depends_on:
