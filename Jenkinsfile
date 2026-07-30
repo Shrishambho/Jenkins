@@ -41,7 +41,7 @@ pipeline{
              withCredentials([usernamePassword('credentialsId':"DockerCredentials",passwordVariable : "dockerHubPass",usernameVariable:"dockerHubUser")]){
                  sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
                  sh "docker image tag springboot:latest ${env.dockerHubUser}/springboot:latest"
-                 sh "docker push ${env.dockerHubUser}/springboot:lates"
+                 sh "docker push ${env.dockerHubUser}/springboot:latest"
              } 
           }
       }
